@@ -206,6 +206,9 @@ h1, h2, h3, p { margin-top: 0; }
 .price-value small { color: #91968c; font: 500 9px var(--font-body); }
 .best .price-value { color: #4c6b37; }
 .best-tag { display: inline-block; margin-top: 4px; color: #719051; font-size: 8px; font-weight: 700; }
+.store-link { display: block; width: fit-content; margin-top: 7px; color: #587549; font-size: 9px; font-weight: 700; text-decoration: underline; text-decoration-color: #b7c8a9; text-underline-offset: 2px; }
+.store-link span { margin-left: 2px; }
+.store-link:hover { color: #1d332b; }
 .card-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 11px; border-top: 1px solid #f0efe9; }
 .price-note { color: #a0a399; font-size: 9px; }
 .add-button { display: inline-flex; align-items: center; gap: 5px; padding: 6px 9px; border: 1px solid #dfe5d6; border-radius: 5px; background: transparent; color: #567348; font-size: 10px; font-weight: 700; cursor: pointer; transition: .18s ease; }
@@ -311,6 +314,7 @@ h1, h2, h3, p { margin-top: 0; }
   .store-price { padding: 8px 7px; }
   .store-name { font-size: 8px; }
   .price-value { font-size: 13px; }
+  .store-link { font-size: 8px; }
   .bottom-banner { align-items: flex-start; gap: 10px; margin-top: 25px; padding: 16px 13px; }
   .banner-icon { flex-basis: 32px; width: 32px; height: 32px; font-size: 16px; }
   .bottom-banner h3 { font-size: 11px; }

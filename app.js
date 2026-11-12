@@ -1,4 +1,17 @@
-const stores = ["Checkers", "Pick n Pay", "Woolworths"];
+const stores = [
+  {
+    name: "Checkers",
+    searchUrl: (query) => `https://www.checkers.co.za/search/?q=${query}`,
+  },
+  {
+    name: "Pick n Pay",
+    searchUrl: (query) => `https://www.pnp.co.za/search/?text=${query}`,
+  },
+  {
+    name: "Woolworths",
+    searchUrl: (query) => `https://www.woolworths.co.za/browse?searchterm=${query}&fr=1`,
+  },
+];
 
 const products = [
   { id: "milk", name: "Full Cream Milk", detail: "2L · Fresh dairy", category: "Dairy", emoji: "🥛", prices: [34.99, 36.99, 39.99] },
@@ -48,10 +61,13 @@ function renderProducts() {
     const inBasket = basket.has(product.id);
     const priceOptions = product.prices.map((price, index) => {
       const isBest = price === lowestPrice;
+      const store = stores[index];
+      const searchQuery = encodeURIComponent(`${product.name} ${product.detail}`);
       return `<div class="store-price${isBest ? " best" : ""}">
-        <span class="store-name">${stores[index]}</span>
+        <span class="store-name">${store.name}</span>
         <span class="price-value">${money(price)}</span>
-        ${isBest ? '<span class="best-tag">BEST PRICE</span>' : ""}
+        ${isBest ? '<span class="best-tag">LOWEST SAMPLE</span>' : ""}
+        <a class="store-link" href="${store.searchUrl(searchQuery)}" target="_blank" rel="noopener noreferrer" aria-label="Search for ${product.name} at ${store.name}">Find item <span aria-hidden="true">↗</span></a>
       </div>`;
     }).join("");
 
